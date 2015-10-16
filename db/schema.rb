@@ -11,7 +11,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016163941) do
+ActiveRecord::Schema.define(version: 20151016171415) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+    t.string  "title"
+    t.string  "content"
+  end
+
+  add_index "comments", ["project_id"], name: "index_comments_on_project_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "members", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.string   "role"
+    t.text     "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "members", ["project_id"], name: "index_members_on_project_id"
+
+  create_table "offers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "offers", ["project_id"], name: "index_offers_on_project_id"
+  add_index "offers", ["user_id"], name: "index_offers_on_user_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "summary"
+    t.text     "mentorship_req"
+    t.text     "resources_req"
+    t.text     "services_req"
+    t.boolean  "published"
+    t.boolean  "approved"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +74,17 @@ ActiveRecord::Schema.define(version: 20151016163941) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "linkedin"
+    t.text     "personal_sites"
+    t.string   "type"
+    t.integer  "street_num"
+    t.string   "route"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "country"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

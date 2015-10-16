@@ -21,8 +21,7 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+  padding:30px;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -33,4 +32,8 @@ body {
 
 .theme-showcase > p > .btn {
   margin: 5px 0;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'wattauchimmaregular';
 }
