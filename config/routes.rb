@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :packages
+  post "/hook" => "packages#hook"
+
   resources :projects
 
   devise_for :users, :controllers => { registrations: 'registrations' }
