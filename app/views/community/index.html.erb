@@ -1,1 +1,22 @@
-<h1>TEST COMMUNITY</h1>
+
+<div id="event-stream">
+<div id="events-title">LOCAL EVENTS</div>
+<%= @events.html_safe %>
+<div id="events-load-more">LOAD MORE</div>
+</div>
+
+<script type="text/javascript">
+
+var orig = $(".js-event-list-container").html();
+
+$(document).ready(function(){
+	items = $(".l-block-2").slice(0,4);
+	$(".js-event-list-container").html(items) 
+});
+
+$("#events-load-more").click(function(){
+	$(".js-event-list-container").html(orig) 
+});
+
+
+</script>

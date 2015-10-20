@@ -9,12 +9,12 @@ class ApplicationController < ActionController::Base
 	end
 
     def community 
+        @eventbrite = Eventbrite.new
+        @events = @eventbrite.create_event_stream
         render "community/index.html.erb"
     end
 
     def arts 
-        @eventbrite = Eventbrite.new
-        @events = @eventbrite.create_event_stream
         render "arts/index.html.erb"
     end
 

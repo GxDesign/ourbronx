@@ -1,0 +1,80 @@
+
+
+.js-event-list-container {
+	font-family: 'gotham_ssmextra_light';
+	border-top: 10px solid #222;
+    border-bottom: 10px solid #222;
+}
+
+.list-card__organizer, 
+.list-card__venue {
+	color: #000 !important;
+}
+
+.l-block-2 {
+	border: 1px solid #D2D2D2;
+	transition: .15s all ease;
+}
+
+.l-block-2:hover {
+	transform: translateX(20px);
+}
+
+h4.list-card_title {
+	font-family: 'gotham_ssmbook' !important;
+    color: #6D4D6D !important;
+}
+
+#event-stream {
+	max-width:35%;
+	position:relative;
+	padding-top:50px;
+    margin-left:70px;
+    margin-top:50px;
+}
+
+#events-title {
+	height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    background: #222;
+    width: 45%;
+    text-align: center;
+    color: #efefef;
+    font-family: 'gotham_ssmlight';
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
+#events-title::after {
+    border-top: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-left: 25px solid #222;
+    border-bottom: 25px solid #222;
+    content: '';
+    position: absolute;
+    right: -50px;
+    z-index: 1000;
+}
+
+#events-load-more {
+    background-color: #222;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    width: 30%;
+    float: right;
+    font-family:'gotham_ssmbook';
+}
+
+#events-load-more::before {
+    border-top: 20px solid #222;
+    border-left: 20px solid transparent;
+    border-right: 20px solid #222;
+    border-bottom: 20px solid transparent;
+    content: '';
+    position: absolute;
+    margin-left: -66px;
+    z-index: 1000;
+}
