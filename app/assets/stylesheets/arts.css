@@ -12,9 +12,6 @@
 }
 
 .js-event-list-container {
-	width:45%;
-	border:1px solid;
-	padding:20px;
 	font-family: 'gotham_ssmextra_light';
 }
 
@@ -24,6 +21,50 @@
 }
 
 .l-block-2 {
-	margin-bottom: 20px;
-	border: 1px solid;
+	border: 1px solid #D2D2D2;
+	transition: .15s all ease;
 }
+
+.l-block-2:hover {
+	transform: translateX(-20px);
+}
+
+h4.list-card_title {
+	font-family: 'gotham_ssmbook' !important;
+    color: #6D4D6D !important;
+}
+
+#event-stream {
+	max-width:35%;
+	position:relative;
+	padding-top:50px;
+	float:right;
+}
+
+#events-title {
+	height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    background: #222;
+    border-right:5px solid #222;
+    margin-right:70px;
+    width: 45%;
+    text-align: center;
+    color: #efefef;
+    font-family: 'gotham_ssmlight';
+    position: absolute;
+    right: 0;
+    top:0;
+}
+
+#events-title::before {
+    border-top: 25px solid transparent;
+    border-left: 25px solid transparent;
+    border-right: 25px solid #222;
+    border-bottom: 25px solid #222;
+    content: '';
+    position: absolute;
+    left: -50px;
+    z-index: 1000;
+}
+

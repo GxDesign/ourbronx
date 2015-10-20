@@ -1,6 +1,4 @@
 
-
-
 .category-card {
     position: relative;
     display: block;
@@ -1036,7 +1034,7 @@ body,.text-default,.modal__body {
 }
 
 .list-card:hover,.list-card:focus {
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+    box-shadow: 0 6px 5px 0 rgba(0,0,0,.15);
     text-decoration: none;
     outline: 0;
 }

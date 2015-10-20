@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     def arts 
         @eventbrite = Eventbrite.new
-        @events = @eventbrite.create_event_hash
+        @events = @eventbrite.create_event_stream
         render "arts/index.html.erb"
     end
 
