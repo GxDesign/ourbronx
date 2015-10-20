@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+  resources :causes
+  post "/hook" => "causes#hook"
+  post 'causes/:id/donate' => 'causes#paypal'
   resources :scholarships
-
-  resources :packages
-  post "/hook" => "packages#hook"
-
   resources :projects
 
   devise_for :users, :controllers => { registrations: 'registrations' }

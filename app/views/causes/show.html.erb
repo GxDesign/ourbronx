@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_tag("/causes/#{@cause.id}/donate") do %>
+  $<%= number_field_tag 'amount' %>
+  <%= submit_tag "Donate", class: "btn btn-info" %>
+<% end %>
+
+<br>
+
+<%= link_to 'Edit', edit_cause_path(@cause) %> |
+<%= link_to 'Back', causes_path %>

@@ -1,0 +1,30 @@
+// Place all the styles related to the causes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.image {
+  width: 100%;
+}
+.cause {
+  .title {
+    margin-bottom: 1em;
+  }
+  .description {
+    line-height: 1.4;
+    margin-top: 10px;
+    padding: 5px;
+  }
+
+  a>h5 {
+    color: black;
+  }
+}
+
+/* Grow */
+.hover-grow {
+    transition-duration: 0.3s;
+    transition-property: transform;
+    &:hover, &:focus, &:active {
+      transform: scale(1.1);
+    }
+}
