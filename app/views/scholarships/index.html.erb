@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<div class="container scholarship">
+  <h1 class="text-center title">Listing Scholarships</h1>
+    <div class="row">
+      <% @scholarships.each do |scholarship| %>
+        <div class="col-md-4 hover-grow">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <%= link_to scholarship_path(scholarship) do %>
+                <h5><%= scholarship.title %></h5>
+              <% end %>
+            </div>
+            <div class="panel-body">
+              <%= link_to scholarship_path(scholarship) do %>
+                <%= image_tag("sample", class: "image") %>
+              <% end %>
+              <p class="text-center description"><%= scholarship.description %></p>
+              <div class="progress">
+                <% percent = (scholarship.funded/scholarship.goal.to_f)*100 %>
+                <%# percent = 100 %>
+                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%;">
+                  <%= percent == 100 ? "complete!" : "#{percent}%" %>
+                </div>
+              </div>
+              <table class="table table-hover">
+                <tr>
+                  <th>goal</th>
+                  <th>funded</th>
+                  <th>limit</th>
+                </tr>
+                <tr>
+                  <td>$<%= scholarship.goal_amount %></td>
+                  <td>$<%= scholarship.amount_funded %></td>
+                  <td><%= scholarship.limit %> days</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <br>
+
+  <%= link_to 'New Scholarship', new_scholarship_path, class: "btn btn-info" %>
+</div>

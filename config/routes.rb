@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :scholarships
+
   resources :packages
   post "/hook" => "packages#hook"
 
