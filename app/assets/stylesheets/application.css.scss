@@ -20,9 +20,7 @@
  */
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
-body {
-  padding:30px;
-}
+
 
 .theme-dropdown .dropdown-menu {
   position: static;
@@ -36,4 +34,12 @@ body {
 
 h1, h2, h3, h4 {
 	font-family: 'wattauchimmaregular';
+}
+
+img {
+	max-width: 100%
+}
+
+body {
+	padding-top:50px;
 }

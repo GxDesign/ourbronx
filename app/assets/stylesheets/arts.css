@@ -1,0 +1,29 @@
+#collab-poem-intro {  
+    text-align: center;
+    padding: 40px 100px;
+    color: #E2E2E2;
+    background-color: #2C043C;
+    margin-top: -25px;
+}
+
+#collab-poem-intro h2 {	
+	font-family: 'gotham_ssmextra_light';	
+    line-height: 45px;
+}
+
+.js-event-list-container {
+	width:45%;
+	border:1px solid;
+	padding:20px;
+	font-family: 'gotham_ssmextra_light';
+}
+
+.list-card__organizer, 
+.list-card__venue {
+	color: #000 !important;
+}
+
+.l-block-2 {
+	margin-bottom: 20px;
+	border: 1px solid;
+}

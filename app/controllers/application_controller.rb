@@ -3,11 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception
     before_filter :configure_permitted_parameters, if: :devise_controller?
-
+    
     def home
 		render "homepage/index" 
 	end
 
+    def community 
+        render "community/index.html.erb"
+    end
+
+    def arts 
+        @eventbrite = Eventbrite.new
+        @events = @eventbrite.create_event_hash
+        render "arts/index.html.erb"
+    end
 
     protected
 

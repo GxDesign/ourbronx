@@ -1,6 +1,7 @@
 Rails.application.configure do
   GA.tracker = Rails.application.secrets.google_analytics_code
   config.action_mailer.default_url_options = { host: Rails.application.secrets.host }
+  config.action_mailer.delivery_method = :letter_opener
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

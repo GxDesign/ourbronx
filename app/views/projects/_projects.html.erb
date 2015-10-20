@@ -1,0 +1,11 @@
+<div id="project-cards-container" %>
+	<% Project.all.each do |p| %>
+		<div class="project-card">
+			<div class="pc-title"><%= p.title %></div>
+			<div class="pc-img" style="background: url('<%= p.image.url%> ')">
+			</div>
+			<div class="pc-desc"><%= p.summary %></div>
+			<div class="pc-avatar"><%= image_tag p.user.avatar %></div>
+		</div>
+	<% end %>
+</div>
