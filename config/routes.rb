@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
+  # get 'projects/show'
+
+  # get 'projects/index'
+
+  # get 'projects/new'
+
+  # get 'projects/create'
+
+  # get 'projects/edit'
+
   resources :causes
   post "/hook" => "causes#hook"
   post 'causes/:id/donate' => 'causes#paypal'
   resources :scholarships
+
   resources :projects
 
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -10,6 +21,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   root 'application#home'
+  get 'community' => 'application#community'
+  get 'arts' => 'application#arts'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

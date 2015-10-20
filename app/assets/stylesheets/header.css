@@ -1,0 +1,73 @@
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #FFF;
+    height: 50px;
+    padding: 0 80px;
+    border-bottom: 1px solid;
+}
+
+#logo {
+	margin-top: 8px;
+    margin-left: 15px;
+}
+
+#anim-logo-cont {
+  display: flex;
+  font-family: 'montserrat', sans-serif;
+}
+
+#anim-logo-bronx {
+  font-size:25px;
+  background: #fff;
+  color: #222;
+  margin-left: -35px;
+  transition: 1.5s ease all;
+  -moz-transition: 1.5s ease all;
+  -webkit-transition: 1.5s ease all;
+}
+
+#anim-logo-our {
+  font-size:15px;
+  padding-top:9px;
+  color: #5C1D88;
+  transition: .5s ease all;
+  -moz-transition: .5s ease all;
+  -webkit-transition: .5s ease all;
+}
+
+#anim-logo-emphasis {
+  height:3px;
+  background: #5C1D88;
+  float:right;
+  width: 0;
+  transition: .5s ease all;
+  -moz-transition: .5s ease all;
+  -webkit-transition: .5s ease all;
+}
+
+#anim-logo-emphasis.active {
+  width:100%;
+}
+
+#anim-logo-our.active {
+  padding-top: 3px;
+}
+
+#anim-logo-bronx.active {
+  margin-left: 5px;
+}
+
+#session {
+  position: absolute;
+  right: 80px;
+  top: 11px;
+}
+
+#session img {
+  border-radius: 50%;
+  border: 2px solid #936DAD;
+  margin-top: -6px;
+}
