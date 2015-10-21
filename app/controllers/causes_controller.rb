@@ -3,22 +3,64 @@ class CausesController < ApplicationController
   before_action :set_cause, only: [:paypal, :show, :edit, :update, :destroy]
 
   def paypal
+    # Goes in here after submitting the donation amount in the form
     redirect_to paypal_url(@cause, params[:amount])
   end
 
   def hook
+    # To avoid Missing template causes/hook error
+    render nothing: true
+
+    # Goes in here after payment went through (Paypal's callback url)
+    #binding.pry
     params.permit! # Permit all Paypal input params
     status = params[:payment_status]
+
     if status == "Completed"
-      # binding.pry
       @cause = Cause.find(params[:item_number])
       amount_before_donation_in_cents = @cause.funded
       amount_donated_in_cents = params[:payment_gross].to_f*100
-      @cause.update_attributes(notification_params: params, status: status, transaction_id: params[:txn_id], purchased_at: Time.now, funded: amount_before_donation_in_cents + amount_donated_in_cents, amount_of_donations: @cause.amount_of_donations.next)
+      total_amount_donated_in_cents = amount_before_donation_in_cents + amount_donated_in_cents
+
+      @cause.update_attributes(
+        notification_params: params,
+        status: status,
+        transaction_id: params[:txn_id],
+        purchased_at: Time.now,
+        funded: total_amount_donated_in_cents,
+        amount_of_donations: @cause.amount_of_donations.next
+      )
+
+      #binding.pry
+      # NameError (uninitialized constant CausesController::Donation):
+      Donation.create!(
+        uuid: params[:invoice],
+        amount: amount_donated_in_cents,
+        cause_id: @cause.id,
+        user_id: params[:custom]
+      )
+
+      left_over_funds = total_amount_donated_in_cents - @cause.goal
+      # binding.pry
+      if left_over_funds >= 0
+        #Cause is complete
+        Scholarship.create!(
+          cause_id: @cause.id,
+          title: @cause.title,
+          amount: @cause.goal,
+          amount_of_donors: Donation.pluck(:user_id).uniq.count
+        )
+      end
     end
-    render nothing: true
+    # To avoid Missing template causes/hook error
+    #render nothing: true
   end
 
+  def invoice
+    # Goes in here when user selects to go back to our site from paypal
+    #binding.pry
+    redirect_to causes_path, success: "Congratulations! You have helped fund a new scholarship!"
+  end
   # GET /causes
   # GET /causes.json
   def index

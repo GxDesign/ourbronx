@@ -41,6 +41,27 @@
     <% end %>
   </div>
   <br>
+  <div class="row">
+    <h1 class="text-center title">Scholarships Funded</h1>
+    <table class="table table-hover">
+      <tr>
+        <th>Cause ID</th>
+        <th>title</th>
+        <th>Amount</th>
+        <th># of Donors</th>
+      </tr>
+      <% Scholarship.all.each do |scholarship| %>
+        <tr>
+          <td><%= scholarship.cause.id %></td>
+          <td><%= scholarship.title %></td>
+          <td>$<%= scholarship.amount %></td>
+          <td><%= scholarship.amount_of_donors %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 
+
+  <br><br><br><br><br>
   <%= link_to 'New Cause', new_cause_path, class: "btn btn-info" %>
 </div>

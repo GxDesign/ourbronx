@@ -3,7 +3,7 @@ class CreateCauses < ActiveRecord::Migration
     create_table :causes do |t|
       t.string :title
       t.string :description
-      t.integer :amount_of_donations
+      t.integer :amount_of_donations, default: 0
       t.integer :goal
       t.integer :funded
       t.integer :limit
