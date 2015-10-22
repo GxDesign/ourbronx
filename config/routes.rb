@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   # get 'projects/edit'
 
+  resources :causes
+  post 'causes/:id/donate' => 'causes#paypal'
+  post "/hook" => "causes#hook"
+  get "/donation" => "causes#invoice", as: 'donation'
+  resources :scholarships
+
   resources :projects
 
   devise_for :users, :controllers => { registrations: 'registrations' }

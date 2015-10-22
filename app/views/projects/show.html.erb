@@ -1,58 +1,49 @@
+<div id="new-project" class="project-show">
 <p id="notice"><%= notice %></p>
 
-
-<div class="p-image" style="background: url('<%= @project.image.url%> ')">
-      </div>
-<div class="p-user-avatar">
-  <%= image_tag(@project.user.avatar) %>
+<div class="project-header">
+  <div class="project-images">
+    <div class="p-image" style="background-image: url('<%= @project.image.url%> ')">
+    </div>
+    <div class="p-user-avatar">
+      <%= image_tag(@project.user.avatar) %>
+    </div>
+  </div>
+  <div class="project-title">
+    <%= @project.title %>
+  </div>
 </div>
 
-<style>
-.p-user-avatar img {
-  width: 100px;
-}
-
-.p-image {
-  height:250px;
-  width:250px;
-  background-position: center
-}
-</style>
-
 <p>
-  <strong>Title:</strong>
-  <%= @project.title %>
+  <strong>Content:</strong><br>
+  <%= @project.content %>
 </p>
 
 <p>
-  <strong>Summary:</strong>
-  <%= @project.summary %>
-</p>
-
-<p>
-  <strong>Mentorship req:</strong>
+  <strong>Mentorship Requirements</strong><br>
   <%= @project.mentorship_req %>
 </p>
 
 <p>
-  <strong>Resources req:</strong>
+  <strong>Resource Requirements</strong><br>
   <%= @project.resources_req %>
 </p>
 
 <p>
-  <strong>Services req:</strong>
+  <strong>Services Requirements</strong><br>
   <%= @project.services_req %>
 </p>
 
 <p>
-  <strong>Published:</strong>
+  <strong>Published:</strong><br>
   <%= @project.published %>
 </p>
 
 <p>
-  <strong>Approved:</strong>
+  <strong>Approved:</strong><br>
   <%= @project.approved %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+</div>

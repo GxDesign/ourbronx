@@ -1,7 +1,5 @@
 #slideshow img{
-/*	position:absolute;
-	left: 0;
-	top:45px;*/
+   width: 100%;
 }
 
 
@@ -11,9 +9,15 @@ ul#transition-text {
 
 #hero-text {
 	font-family: 'gotham_ssmlight';
-	transform: translateY(-380px);
+	transform: translateY(-350px);
     color: #fff;
     font-size: 45px;
+}
+
+@media (min-width:1700px) {
+    #hero-text {
+        transform: translateY(-2500%) !important;
+    }
 }
 
 #hero-text {
@@ -40,7 +44,7 @@ ul#transition-text {
 #hp-join-btn {
     border: 2px solid rgb(69, 58, 132);
     display: inline-block;
-    padding: 5px 55px;
+    padding: 10px 55px;
     border-radius: 30px;
     margin: 25px 0;
     font-size: 22px;
@@ -48,6 +52,3 @@ ul#transition-text {
     color: #7B7B7B;
 }
 
-#hp-join-r {
-	color: #56377B
-}

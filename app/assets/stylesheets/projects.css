@@ -11,6 +11,11 @@
 	margin:20px;
 	border: 1px solid #cecece;
 	position: relative;
+	transition: .2s all ease;
+}
+
+.project-card:hover {
+	transform: scale(1.05);
 }
 
 .pc-title {
@@ -68,6 +73,12 @@
     margin-bottom: 10px;
 }
 
+#new-project input,
+#new-project textarea {
+	color: #222;
+	padding:20px;
+}
+
 #new-project textarea {
 	height:200px;
 }
@@ -91,7 +102,6 @@
 
 #new-project input[type="submit"] {
 	width: 400px;
-    height: 40px;
     border-radius: 30px;
     color: #5A135A;
     text-transform: uppercase;
@@ -109,3 +119,60 @@
 .back-btn {
     padding-bottom: 30px;
 }
+
+
+.proj-edit-img {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.proj-edit-img img {
+	width: 100% !important;
+	margin-bottom: 30px;
+}
+
+#new-project #project-image {
+	width: 300px;
+    margin: 0 auto;
+    color: #efefef;
+}
+
+.project-images {
+	position: relative;
+}
+
+.p-user-avatar img {
+  width: 100%;
+}
+
+.p-user-avatar {
+    width: 100px;
+    position: absolute;
+    left: 260px;
+    border-radius: 50%;
+    border: 5px solid #efefef;
+    top: 230px;
+    overflow: hidden;
+}
+
+.p-image {
+  height:350px;
+  width:350px;
+  border-radius: 50%;
+  border:10px solid #efefef;
+  background-position: center;
+  background-size: auto 100%;
+}
+
+.project-header {
+	width:70%;
+	margin: 0 auto;
+	display: flex;
+}
+
+.project-title {
+	font-size: 40px;
+    padding: 140px 50px 0;
+    font-family: 'gotham_ssmbook';
+}
+

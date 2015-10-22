@@ -1918,15 +1918,6 @@ body,.text-default,.modal__body {
     border-radius: 165px;
 }
 
-html,body,.container {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .layout-inline>* {
     display: inline-block;
     zoom: 1;
@@ -2015,9 +2006,6 @@ body {
     display: none;
 }
 
-body {
-    background: #f7f7f7;
-}
 
 a {
     color: #00a1ee;
@@ -2032,12 +2020,10 @@ a:active {
     color: #007fbb;
 }
 
-a:focus,a:hover,a:active {
-    text-decoration: underline;
-}
 
 a:hover {
     cursor: pointer;
+    text-decoration:none !important;
 }
 
 a.uncolored,a.uncolored:hover,a.uncolored:focus,a.uncolored:active,a.uncolored:visited {
@@ -2048,39 +2034,7 @@ a.undecorated,a.undecorated:hover,a.undecorated:focus,a.undecorated:active {
     text-decoration: none;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    margin: 0;
-}
 
-ul {
-    margin: 0;
-}
-
-address {
-    font-style: normal;
-}
-
-button,input,select,textarea {
-    font-family: inherit;
-    font-size: 100%;
-    margin: 0;
-}
-
-fieldset {
-    padding: 0;
-    border: 0;
-}
-
-label:hover {
-    cursor: pointer;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid #dedede;
-    height: 0;
-    margin: 0;
-}
 
 .hide,.hidden,.hide_me {
     display: none;

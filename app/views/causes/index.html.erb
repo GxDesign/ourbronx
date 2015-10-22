@@ -1,0 +1,83 @@
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="container cause">
+  <h1 class="text-center title">Listing Causes</h1>
+    <div class="row">
+      <% @causes.each do |cause| %>
+        <div class="col-md-4 hover-grow">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <%= link_to cause_path(cause) do %>
+                <h5><%= cause.title %></h5>
+              <% end %>
+            </div>
+            <div class="panel-body">
+              <%= link_to cause_path(cause) do %>
+                <%= image_tag(cause.title.downcase.gsub(/\s/, "_"), class: "image") %>
+              <% end %>
+              <p class="text-center description"><%= cause.description %></p>
+              <div class="progress">
+                <% percent = ((cause.funded/cause.goal.to_f)*100).round(2) %>
+                <%# percent = 100 %>
+                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%;">
+                  <%= percent >= 100 ? "complete!" : "#{percent}%" %>
+                </div>
+              </div>
+              <table class="table table-hover">
+                <tr>
+                  <th>goal</th>
+                  <th>funded</th>
+                  <th>limit</th>
+                </tr>
+                <tr>
+                  <td>$<%= cause.goal_amount %></td>
+                  <td>$<%= cause.amount_funded %></td>
+                  <td><%= cause.limit %> days</td>
+                </tr>
+              </table>
+              <% unless Scholarship.where(cause_id: cause.id).count.zero? %>
+                <table class="table table-hover">
+                  <tr>
+                    <th>Available</th>
+                    <th>Donors</th>
+                  </tr>
+                  <tr>
+                    <td><%= Scholarship.where(cause_id: cause.id).count %></td>
+                    <td><%= Scholarship.where(cause_id: cause.id).map {|s|s.amount_of_donors}.count %></td>
+                  </tr>
+                </table>
+                <% else %>
+                <h4 class="text-center">No Scholarships funded yet, be the first to donate!</h4>
+              <% end %>
+              <h5 class="text-center"><%= link_to "Apply/Learn More", cause_path(cause), class: "donate-btn" %></h5>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <br>
+  <% unless Scholarship.all.empty? %>
+    <div class="row">
+      <h1 class="text-center title">Scholarships Funded</h1>
+      <table class="table table-hover">
+        <tr>
+          <th>Cause ID</th>
+          <th>title</th>
+          <th>Amount</th>
+          <th># of Donors</th>
+        </tr>
+        <% Scholarship.all.each do |scholarship| %>
+          <tr>
+            <td><%= scholarship.cause.id %></td>
+            <td><%= scholarship.title %></td>
+            <td>$<%= scholarship.amount %></td>
+            <td><%= scholarship.amount_of_donors %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
+
+
+  <br><br><br><br><br>
+  <%= link_to 'New Cause', new_cause_path, class: "btn btn-info" %>
+</div>

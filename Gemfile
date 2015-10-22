@@ -1,10 +1,4 @@
 source 'https://rubygems.org'
-
-gem 'seed_dump'
-gem 'nokogiri'
-gem 'figaro'
-gem 'civic_aide'
-gem 'paperclip', '~> 4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -39,7 +33,6 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
   gem "letter_opener"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -49,8 +42,8 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'database_cleaner'
@@ -65,5 +58,11 @@ group :production do
   gem 'google-analytics-rails'
 end
 
-gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
+gem 'figaro'
+gem "twitter-bootstrap-rails"
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'seed_dump'
+gem 'nokogiri'
+gem 'civic_aide'
+gem 'paperclip', '~> 4.1'

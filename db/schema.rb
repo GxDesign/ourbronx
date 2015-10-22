@@ -13,6 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20151022134308) do
 
+  create_table "causes", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "amount_of_donations", default: 0
+    t.integer  "goal"
+    t.integer  "funded"
+    t.integer  "limit"
+    t.text     "notification_params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "project_id"
@@ -22,6 +37,16 @@ ActiveRecord::Schema.define(version: 20151022134308) do
 
   add_index "comments", ["project_id"], name: "index_comments_on_project_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "donations", force: :cascade do |t|
+    t.string  "uuid"
+    t.integer "amount"
+    t.integer "user_id"
+    t.integer "cause_id"
+  end
+
+  add_index "donations", ["cause_id"], name: "index_donations_on_cause_id"
+  add_index "donations", ["user_id"], name: "index_donations_on_user_id"
 
   create_table "members", force: :cascade do |t|
     t.integer  "project_id"
@@ -65,6 +90,15 @@ ActiveRecord::Schema.define(version: 20151022134308) do
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+
+  create_table "scholarships", force: :cascade do |t|
+    t.integer  "cause_id"
+    t.string   "title"
+    t.integer  "amount"
+    t.integer  "amount_of_donors"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

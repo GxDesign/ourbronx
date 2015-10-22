@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<br><br><br>
+  <div class="row">
+    <%= form_tag("/causes/#{@cause.id}/donate") do %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%# form_authenticity_token %>
+      $<%= number_field_tag 'amount' %>
+      <%= submit_tag "Donate", class: "btn btn-info" %>
+    <% end %>
+  </div>
+
+
+<br>
+
+<%= link_to 'Edit', edit_cause_path(@cause) %> |
+<%= link_to 'Back', causes_path %>

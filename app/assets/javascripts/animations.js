@@ -55,7 +55,7 @@ $(document).ready(function(){
     captionEl = $('#caption');
     
     
-    var time = 6000;
+    var time = 4000;
 
     $("#transition-text li").each(function(txtIndex, text) {
     	// debugger;
