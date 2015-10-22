@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<!-- <p id="notice"><%= notice %></p> -->
 <div class="container cause">
   <h1 class="text-center title">Listing Causes</h1>
     <div class="row">
@@ -13,7 +12,7 @@
             </div>
             <div class="panel-body">
               <%= link_to cause_path(cause) do %>
-                <%= image_tag("sample", class: "image") %>
+                <%= image_tag(cause.title.downcase.gsub(/\s/, "_"), class: "image") %>
               <% end %>
               <p class="text-center description"><%= cause.description %></p>
               <div class="progress">
@@ -35,31 +34,48 @@
                   <td><%= cause.limit %> days</td>
                 </tr>
               </table>
+              <% unless Scholarship.where(cause_id: cause.id).count.zero? %>
+                <table class="table table-hover">
+                  <tr>
+                    <th>Available</th>
+                    <th>Donors</th>
+                  </tr>
+                  <tr>
+                    <td><%= Scholarship.where(cause_id: cause.id).count %></td>
+                    <td><%= Scholarship.where(cause_id: cause.id).map {|s|s.amount_of_donors}.count %></td>
+                  </tr>
+                </table>
+                <% else %>
+                <h4 class="text-center">No Scholarships funded yet, be the first to donate!</h4>
+              <% end %>
+              <h5 class="text-center"><%= link_to "Apply/Learn More", cause_path(cause), class: "donate-btn" %></h5>
             </div>
           </div>
         </div>
     <% end %>
   </div>
   <br>
-  <div class="row">
-    <h1 class="text-center title">Scholarships Funded</h1>
-    <table class="table table-hover">
-      <tr>
-        <th>Cause ID</th>
-        <th>title</th>
-        <th>Amount</th>
-        <th># of Donors</th>
-      </tr>
-      <% Scholarship.all.each do |scholarship| %>
+  <% unless Scholarship.all.empty? %>
+    <div class="row">
+      <h1 class="text-center title">Scholarships Funded</h1>
+      <table class="table table-hover">
         <tr>
-          <td><%= scholarship.cause.id %></td>
-          <td><%= scholarship.title %></td>
-          <td>$<%= scholarship.amount %></td>
-          <td><%= scholarship.amount_of_donors %></td>
+          <th>Cause ID</th>
+          <th>title</th>
+          <th>Amount</th>
+          <th># of Donors</th>
         </tr>
-      <% end %>
-    </table>
-  </div>
+        <% Scholarship.all.each do |scholarship| %>
+          <tr>
+            <td><%= scholarship.cause.id %></td>
+            <td><%= scholarship.title %></td>
+            <td>$<%= scholarship.amount %></td>
+            <td><%= scholarship.amount_of_donors %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
 
 
   <br><br><br><br><br>

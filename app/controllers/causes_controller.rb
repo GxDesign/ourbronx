@@ -1,5 +1,6 @@
 class CausesController < ApplicationController
   include CausesHelper
+  before_action :authenticate_user!, :except => [:index, :show]
   before_action :set_cause, only: [:paypal, :show, :edit, :update, :destroy]
 
   def paypal
@@ -8,9 +9,6 @@ class CausesController < ApplicationController
   end
 
   def hook
-    # To avoid Missing template causes/hook error
-    render nothing: true
-
     # Goes in here after payment went through (Paypal's callback url)
     #binding.pry
     params.permit! # Permit all Paypal input params
@@ -41,7 +39,9 @@ class CausesController < ApplicationController
       )
 
       left_over_funds = total_amount_donated_in_cents - @cause.goal
-      # binding.pry
+
+      binding.pry
+
       if left_over_funds >= 0
         #Cause is complete
         Scholarship.create!(
@@ -50,16 +50,24 @@ class CausesController < ApplicationController
           amount: @cause.goal,
           amount_of_donors: Donation.pluck(:user_id).uniq.count
         )
+        flash[:success] = "Congratulations! You have helped fund a new scholarship!"
+      else
+        flash[:notice] = "Thanks! You have succesfully donated #{amount_donated_in_cents} for #{@cause.title}."
       end
     end
     # To avoid Missing template causes/hook error
-    #render nothing: true
+    render nothing: true # Since we are still in the paypal receipt page
   end
 
   def invoice
     # Goes in here when user selects to go back to our site from paypal
-    #binding.pry
-    redirect_to causes_path, success: "Congratulations! You have helped fund a new scholarship!"
+    binding.pry
+    # TODO Find a way to get the flash messages in here (Also add back the navbar)
+    #cause = Donation.last.cause
+    #if !cause.scholarships.empty? && cause.scholarships.last
+    #flash[:success] = "Congratulations! You have helped fund a new scholarship!"
+    flash.keep
+    redirect_to causes_path
   end
   # GET /causes
   # GET /causes.json
