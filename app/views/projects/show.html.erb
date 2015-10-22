@@ -1,3 +1,10 @@
+<script>
+$(document).ready(function() {
+$("form").hide();
+});
+</script>
+
+
 <div id="new-project" class="project-show">
 <p id="notice"><%= notice %></p>
 
@@ -9,41 +16,122 @@
       <%= image_tag(@project.user.avatar) %>
     </div>
   </div>
-  <div class="project-title">
-    <%= @project.title %>
+  <div class="project-info">
+    <div class="project-title">
+      <%= @project.title %>
+    </div>
+    <div class="project-summary">
+      <%= @project.summary %>
+    </div>
+    <div class="project-createdby">
+      Created by <%= @project.user.full_name %>
+    </div>
+  </div>
+
+</div>
+
+<div class="project-body">
+<br><br><br>
+  <div class="project-body-title">
+      About The Project
+      <hr>
+    </div>
+<div class="project-body-text">
+  <%= @project.content %>
+</div>
+
+<div class="project-body-section">
+  <div class="project-body-title">
+    <strong>Mentorship Requirements</strong>
+  </div>
+  <div class="project-body-text">
+    <%= @project.mentorship_req %>
+  </div>
+  <div id="mentor-help">
+    <div class="help-button">
+      would you like to help?
+    </div>
+    <form id='form_m' class="project-join" action="add_mentor" method="POST">
+      <input name="message" placeholder="add a message">
+      <input type="hidden" name="user" value="<%= current_user.id %>">
+      <input type="hidden" name="project" value="<%= @project.id %>">
+      <input type="submit" value="JOIN" >
+    </form>
+    <div class="recent-joins">
+    Recently Joined
+    </div>
+    <hr>
+    <div class="project-usrs-cont">
+      <% @project.project_mentors.each do |m| %>
+        <div class="project-usr" id="members_group">
+          <%= image_tag(m.user.avatar) %>
+        </div>
+      <% end %>
+      <%= image_tag(current_user.avatar, :class=>'hide current_user') %>
+      </div>
   </div>
 </div>
 
-<p>
-  <strong>Content:</strong><br>
-  <%= @project.content %>
-</p>
+<div class="project-body-section">
+  <div class="project-body-title">
+    <strong>Resource Requirements</strong>
+  </div>
+  <div class="project-body-text">
+    <%= @project.resources_req %>
+  </div>
+  <div id="resources-help">
+    <div class="help-button">
+      would you like to help?
+    </div>
+    <form class="project-join" action="add_resource" method="POST">
+      <input name="message" placeholder="add a message">
+      <input type="hidden" name="user" value="<%= current_user.id %>">
+      <input type="hidden" name="project" value="<%= @project.id %>">
+      <input type="submit" value="JOIN" >
+    </form>
+  </div>
+</div>
 
-<p>
-  <strong>Mentorship Requirements</strong><br>
-  <%= @project.mentorship_req %>
-</p>
 
-<p>
-  <strong>Resource Requirements</strong><br>
-  <%= @project.resources_req %>
-</p>
+<div class="project-body-section">
+  <div class="project-body-title">
+    <strong>Services Requirements</strong>
+  </div>
+  <div class="project-body-text">
+    <%= @project.services_req %>
+  </div>
+  <div id="services-help">
+    <div class="help-button">
+      would you like to help?
+    </div>
+    <form class="project-join" action="add_service" method="POST">
+      <input name="message" placeholder="add a message">
+      <input type="hidden" name="user" value="<%= current_user.id %>">
+      <input type="hidden" name="project" value="<%= @project.id %>">
+      <input type="submit" value="JOIN" >
+    </form>
+  </div>
+</div>
 
-<p>
-  <strong>Services Requirements</strong><br>
-  <%= @project.services_req %>
-</p>
-
-<p>
-  <strong>Published:</strong><br>
-  <%= @project.published %>
-</p>
-
-<p>
-  <strong>Approved:</strong><br>
-  <%= @project.approved %>
-</p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 </div>
+</div>
+
+
+<script>
+
+
+$("#services-help .help-button").click(function(){
+  $("#services-help form").slideToggle()
+});
+
+$("#resources-help .help-button").click(function(){
+  $("#resources-help form").slideToggle()
+});
+
+$("#mentor-help .help-button").click(function(){
+  $("#mentor-help form").slideToggle()
+});
+</script>

@@ -1,5 +1,6 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'> 
 
+<a href="home">
 <div id="logo"> 
 	<div id="anim-logo-cont">
 	  <div id="anim-logo-our">
@@ -11,7 +12,10 @@
 	  </div>
 	</div>
 </div>
-
+</a>
+<div id="menu">
+	<a href="projects">PROJECTS</a> | <a href="community">COMMUNITY</a> | <a href="causes">SCHOLARSHIPS</a>
+</div>
 <div id="session">
 	 <% if user_signed_in? %>
 	 <%= image_tag current_user.avatar(:thumb) %>

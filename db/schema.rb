@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022134308) do
+ActiveRecord::Schema.define(version: 20151022180707) do
 
   create_table "causes", force: :cascade do |t|
     t.string   "title"
@@ -70,6 +70,21 @@ ActiveRecord::Schema.define(version: 20151022134308) do
 
   add_index "offers", ["project_id"], name: "index_offers_on_project_id"
   add_index "offers", ["user_id"], name: "index_offers_on_user_id"
+
+  create_table "project_mentors", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+  end
+
+  create_table "project_resources", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+  end
+
+  create_table "project_services", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
