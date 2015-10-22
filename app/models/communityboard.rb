@@ -20,7 +20,7 @@ CB_INFO =   {
 			   fax: "(718) 796-2763",
 			   email: "bx08@cb.nyc.gov",
                office_hours: "9:00 am to 5:00 pm",
-               address: "5676 Riverdale Avenue, Suite 100 <br>New York 10471-2194",
+               address: "5676 Riverdale Avenue <br>New York 10471-2194",
                pdf_path: "http://www.nyc.gov/html/bxcb4/"
     		},
 

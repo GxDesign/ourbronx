@@ -21,6 +21,34 @@ class ProjectsController < ApplicationController
   def edit
   end
 
+  def add_resource
+    @project = Project.find(params[:project].to_i)
+    @user = User.find(params[:user].to_i)
+    @resource = ProjectResource.new
+    @resource.user = @user
+    @resource.project = @project
+    @resource.save
+  end
+
+  def add_mentor
+
+    @project = Project.find(params[:project].to_i)
+    @user = User.find(params[:user].to_i)
+    @mentor = ProjectMentor.new
+    @mentor.user = @user
+    @mentor.project = @project
+    @mentor.save 
+  end
+
+  def add_service
+    @project = Project.find(params[:project].to_i)
+    @user = User.find(params[:user].to_i)
+    @service = ProjectService.new
+    @service.user = @user
+    @service.project = @project
+    @service.save
+  end
+
   # POST /projects
   # POST /projects.json
   def create
