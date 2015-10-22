@@ -1,7 +1,7 @@
 class CausesController < ApplicationController
   include CausesHelper
   #before_action :authenticate_user!, :except => [:index, :show]
-  before_action :set_cause, only: [:paypal, :show, :edit, :update, :destroy]
+  before_action :set_cause, only: [:paypal, :apply, :show, :edit, :update, :destroy]
 
   def paypal
     # Goes in here after submitting the donation amount in the form
@@ -49,6 +49,7 @@ class CausesController < ApplicationController
           amount_of_donors: Donation.pluck(:user_id).uniq.count
         )
         #session[:success] = "Congratulations! You have helped fund a new scholarship!"
+      # Reset the causes fund for the next fundiing
       @cause.update_attributes( funded: 0 )
       end
     end
@@ -69,6 +70,32 @@ class CausesController < ApplicationController
     flash[:success] = "Thank you for helping kids take their first step towards securing their future!"
     redirect_to causes_path
   end
+
+  def apply
+    # Render the application
+  end
+
+  def create_application
+    # Here is where we are sending the application
+    #binding.pry
+
+ #  "eligibility"=>
+ #  {"reason_applying"=>"Idk lol",
+ #   "makes_you_unique"=>"dasd",
+ #   "education"=>"das",
+ #   "portfolio"=>"ad",
+ #   "linkedin"=>"ads",
+ #   "difference"=>"asd",
+ #   "extra"=>"das",
+ #   "how_you_found_us"=>"das"},
+ # "commit"=>"Apply",
+ # "controller"=>"causes",
+ # "action"=>"create_application",
+ # "id"=>"1"}
+    flash[:success] = "Congratulations, you have successfully signed up for this scholarship!"
+    redirect_to causes_path
+  end
+
   # GET /causes
   # GET /causes.json
   def index

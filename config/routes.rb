@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :causes
   post 'causes/:id/donate' => 'causes#paypal'
+  get 'causes/:id/apply' => 'causes#apply', as: 'apply'
+  post '/causes/:id/apply' => 'causes#create_application'
   post "/hook" => "causes#hook"
   get "/donation" => "causes#invoice", as: 'donation'
   resources :scholarships

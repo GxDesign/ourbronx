@@ -3,7 +3,6 @@
   <div class="row">
     <%= form_tag("/causes/#{@cause.id}/donate") do %>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%# form_authenticity_token %>
       $<%= number_field_tag 'amount' %>
       <%= submit_tag "Donate", class: "btn btn-info" %>
     <% end %>

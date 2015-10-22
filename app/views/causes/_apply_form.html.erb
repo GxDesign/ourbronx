@@ -1,0 +1,33 @@
+<h3 class="text-center">Apply to the <%= @cause.title %> Scholarship!</h3>
+
+<%= form_tag("/causes/#{@cause.id}/apply") do %>
+  <div class="actions">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <%= label_tag 'eligibility[reason_applying]', 'Why are you interested in this scholarship?' %>
+    <%= text_field_tag 'eligibility[reason_applying]'%><br>
+
+    <%= label_tag 'eligibility[makes_you_unique]', 'We know you are an awesome person, but tell us more! What makes you unique and stand out from the rest of the crowd?' %>
+    <%= text_field_tag 'eligibility[makes_you_unique]'%><br>
+
+    <%= label_tag 'eligibility[education]', 'Tell us about your educational career to date. What are you up to now and how did you end up there?' %>
+    <%= text_field_tag 'eligibility[education]'%><br>
+
+    <%= label_tag 'eligibility[portfolio]', 'Have any cool stuff to show us? Link any projects you have created or were a part of here.' %>
+    <%= text_field_tag 'eligibility[portfolio]'%><br>
+
+    <%= label_tag 'eligibility[linkedin]', 'Your resume says alot about you as a professional individual. Link your linkedin profile here.' %>
+    <%= text_field_tag 'eligibility[linkedin]'%><br>
+
+    <%= label_tag 'eligibility[difference]', 'How will you use this scholarship to help better yourself and further expand your knowledge of the tech field?' %>
+    <%= text_field_tag 'eligibility[difference]'%><br>
+
+    <%= label_tag 'eligibility[extra]', 'Is there anything else you\'d like us to know? Any hobbies or fun things you do on your spare time?' %>
+    <%= text_field_tag 'eligibility[extra]'%><br>
+
+    <%= label_tag 'eligibility[how_you_found_us]', "How did you hear about the Our Bronx #{@cause.title} Scholarship?" %>
+    <%= text_field_tag 'eligibility[how_you_found_us]'%><br>
+
+    <%= submit_tag 'Apply' %>
+  </div>
+<% end -%>
