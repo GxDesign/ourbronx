@@ -11,11 +11,17 @@ class ApplicationController < ActionController::Base
     def community 
         @eventbrite = Eventbrite.new
         @events = @eventbrite.create_event_stream
+        @cb = Communityboard.new
+        @boards = @cb.boards
         render "community/index.html.erb"
     end
 
     def arts 
         render "arts/index.html.erb"
+    end
+
+    def my_projects
+        render "projects/my_projects.html.erb"
     end
 
     protected

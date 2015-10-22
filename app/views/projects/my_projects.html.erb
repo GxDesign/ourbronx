@@ -1,0 +1,28 @@
+<h1>Test My Projects </h1>
+
+
+<% Project.all.each do |p| %>
+	<% if p.user == current_user %>
+	<div id="project-cards-container" %>
+		<div class="project-card">
+			<div class="pc-title"><%= p.title %></div>
+			<div class="pc-img" style="background: url('<%= p.image.url%> ')">
+			</div>
+			<div class="pc-desc"><%= p.summary %></div>
+			<div class="pc-avatar"><%= image_tag p.user.avatar %></div>
+		</div>
+		<div class="pc-members">
+		</div>
+    </div>
+	<% end %>
+<% end %>
+
+<style>
+
+.pc-members {
+	border: 1px solid #cecece;
+	width:100%;
+	width: 60%;
+    margin: 20px;
+}
+</style>

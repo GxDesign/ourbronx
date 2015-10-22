@@ -21,29 +21,47 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
-    <%= f.label :summary %><br>
+    <%= f.label :summary%><br>
+      <div class="form-subtext">
+        A brief summary, less than 150 characters, that will be displayed in your preview.
+      </div>
     <%= f.text_area :summary %>
   </div>
+
   <div class="field">
-    <%= f.label :mentorship_req %><br>
+    <%= f.label :content %><br>
+      <div class="form-subtext">
+        Tell us all about your project but save your requests for the inputs below. 
+      </div>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mentorship_req, "Mentorship Requirements" %><br>
+      <div class="form-subtext">
+        Projects often can benefit from some mentorship, such as in sales or community outreach.
+      </div>  
     <%= f.text_area :mentorship_req %>
   </div>
   <div class="field">
     <%= f.label :resources_req %><br>
+      <div class="form-subtext">
+        While you can't request funds on here, you can request resources like megaphones, a space for meetings, a computer lab or other that can help you and your team. 
+      </div>  
     <%= f.text_area :resources_req %>
   </div>
   <div class="field">
-    <%= f.label :services_req %><br>
+    <%= f.label :services_req, "Volunteer Services" %><br>
+      <div class="form-subtext">
+        Need some drivers or some extra hands? Need someone to design a brochure or give out supplies? Here is where you can request services from our users. 
+      </div>  
     <%= f.text_area :services_req %>
   </div>
   <div class="field">
     <%= f.label :published %><br>
     <%= f.check_box :published %>
-  </div>
-  <div class="field">
-    <%= f.label :approved %><br>
-    <%= f.check_box :approved %>
   </div>
   <div class="actions">
     <%= f.submit %>

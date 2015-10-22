@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root 'application#home'
   get 'community' => 'application#community'
   get 'arts' => 'application#arts'
+  get 'my-projects' => 'application#my_projects'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

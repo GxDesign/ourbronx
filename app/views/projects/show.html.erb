@@ -1,9 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user %>
-</p>
+
+<div class="p-image" style="background: url('<%= @project.image.url%> ')">
+      </div>
+<div class="p-user-avatar">
+  <%= image_tag(@project.user.avatar) %>
+</div>
+
+<style>
+.p-user-avatar img {
+  width: 100px;
+}
+
+.p-image {
+  height:250px;
+  width:250px;
+  background-position: center
+}
+</style>
 
 <p>
   <strong>Title:</strong>

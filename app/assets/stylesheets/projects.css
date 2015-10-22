@@ -52,3 +52,60 @@
     margin-left: -30px;
     bottom: -30px;
 }
+
+#new-project {
+	background-image: url(/assets/purple_lodyas-a81a7fb3dae28a500b8d76f8ae05c337cb0b8b44209e32fece494b7fecc0be74.jpg);
+	color: #efefef;
+}
+
+#new-project .form-subtext,
+#new-project input,
+#new-project textarea {
+	width:60%;
+    font-family: 'gotham_ssmextra_light';
+    font-size: 18px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#new-project textarea {
+	height:200px;
+}
+
+#new-project label {
+	font-family: 'gotham_ssmbook';
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+#new-project h1 {
+	font-family: 'gotham_ssmlight';
+	text-transform: uppercase;
+	margin-bottom:80px;
+}
+
+#new-project {
+	text-align: center;
+	padding-top:80px;
+}
+
+#new-project input[type="submit"] {
+	width: 400px;
+    height: 40px;
+    border-radius: 30px;
+    color: #5A135A;
+    text-transform: uppercase;
+    font-family: 'gotham_ssmbold';
+}
+
+.back-btn a {
+	color: #bbb;
+    line-height: 20px;
+    border: 1px solid #bbb;
+    padding: 5px 10px;
+    border-radius: 30px;
+}
+
+.back-btn {
+    padding-bottom: 30px;
+}

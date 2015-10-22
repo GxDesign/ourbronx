@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020031508) do
+ActiveRecord::Schema.define(version: 20151022134308) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20151020031508) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "content"
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
