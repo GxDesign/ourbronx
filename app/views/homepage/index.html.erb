@@ -1,15 +1,20 @@
 <%= render "homepage/slideshow" %>
 <div id="hp-intro">
-Community projects that reclaim the potential of the Bronx.<br>
-<a href="users/sign_up">
-<div id="hp-join-btn">
-JOIN THE REVOLUTION
-</div>
-</a>
+  Community projects that reclaim the potential of the Bronx.<br>
+  <!-- <a href="users/sign_up">
+  <div id="hp-join-btn">
+  JOIN THE REVOLUTION
+  </div>
+  </a> -->
+  <%= link_to new_user_registration_path do %>
+    <div id="hp-join-btn">
+      JOIN THE REVOLUTION!
+    </div>
+  <% end %>
 </div>
 <%= render "projects/projects" %>
 
-<a class="large-projects-btn" href="projects">VIEW ALL PROJECTS</a>
+<%= link_to "VIEW ALL PROJECTS", projects_path, class: "large-projects-btn"%>
 <br><br><br>
 <br><br><br>
 

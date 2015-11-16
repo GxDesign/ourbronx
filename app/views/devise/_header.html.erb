@@ -1,20 +1,21 @@
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'> 
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
-<a href="home">
-<div id="logo"> 
-	<div id="anim-logo-cont">
-	  <div id="anim-logo-our">
-	    <div>OUR</div>
-	    <div id="anim-logo-emphasis"></div>
-	  </div>
-	  <div id="anim-logo-bronx">
-	    BRONX 
-	  </div>
+<%= link_to root_path do %>
+	<div id="logo">
+		<div id="anim-logo-cont">
+			<div id="anim-logo-our">
+				<div>OUR</div>
+				<div id="anim-logo-emphasis"></div>
+			</div>
+			<div id="anim-logo-bronx">
+				BRONX
+			</div>
+		</div>
 	</div>
-</div>
-</a>
+<% end %>
+
 <div id="menu">
-	<a href="projects">PROJECTS</a> | <a href="community">COMMUNITY</a> | <a href="causes">SCHOLARSHIPS</a>
+	<%= link_to "PROJECTS", projects_path %> | <%= link_to "COMMUNITY", community_path %> | <%= link_to "SCHOLARSHIPS", causes_path %>
 </div>
 <div id="session">
 	 <% if user_signed_in? %>
@@ -24,5 +25,5 @@
 	 <% else %>
 	   <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> |
 	   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-	 <% end %> 
+	 <% end %>
  </div>

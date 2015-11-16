@@ -3,9 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   #protect_from_forgery , with: :exception
   protect_from_forgery except: :hook, with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-    def community 
+    def community
         @eventbrite = Eventbrite.new
         @events = @eventbrite.create_event_stream
         @cb = Communityboard.new
@@ -13,16 +14,16 @@ class ApplicationController < ActionController::Base
         render "community/index.html.erb"
     end
 
-    def arts 
+    def arts
         render "arts/index.html.erb"
     end
 
     def my_projects
         render "projects/my_projects.html.erb"
     end
- 
+
     def home
-	  render "homepage/index"
+	     render "homepage/index"
     end
 
 
