@@ -5,9 +5,9 @@
       <% @causes.each do |cause| %>
         <div class="col-md-4 hover-grow">
           <div class="panel panel-default">
-            <div class="panel-heading text-center">
+            <div class="panel-heading text-center panel-theme">
               <%= link_to cause_path(cause) do %>
-                <h5><%= cause.title %></h5>
+                <h5 class="panel-title"><%= cause.title %></h5>
               <% end %>
             </div>
             <div class="panel-body">
@@ -48,7 +48,9 @@
                 <% else %>
                 <h4 class="text-center">No Scholarships funded yet, be the first to donate!</h4>
               <% end %>
-              <h5 class="text-center"><%= link_to "Apply/Learn More", apply_path(cause), class: "donate-btn" %></h5>
+              <h5 class="text-center">
+              <%= link_to "Apply/Learn More", apply_path(cause), class: "btn donate-btn" %>
+            </h5>
             </div>
           </div>
         </div>
@@ -79,5 +81,5 @@
 
 
   <br><br><br><br><br>
-  <%= link_to 'New Cause', new_cause_path, class: "btn btn-info" %>
+  <%= link_to 'New Cause', new_cause_path, class: "btn" %>
 </div>

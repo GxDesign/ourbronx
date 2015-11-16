@@ -1,18 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<div style="margin-top: 160px !important;" id="project-cards-container" %>
-  <% Project.all[0..3].each do |p| %>
-  <div class="project-card">
-    <a href="/projects/<%=p.id%>">
-      <div class="pc-title"><%= p.title %></div>
-      <div class="pc-img" style="background: url('<%= p.image.url%> ')">
-      </div>
-      <div class="pc-desc"><%= p.summary %></div>
-      <div class="pc-avatar"><%= image_tag p.user.avatar %></div>
-      </a>
-  </div>
-  <% end %>
-</div>
+<%= render partial: "projects", locals: {style: "marg-top", options: true } %>
 
 
 <%= link_to 'New Project', new_project_path, class: "large-projects-btn" %>
+<!-- marg-top -->

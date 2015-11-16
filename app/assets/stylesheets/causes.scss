@@ -18,8 +18,22 @@
     padding: 5px;
   }
 
+  .panel-title {
+    color: white;
+  }
+
   a>h5 {
     color: black;
+  }
+  .panel-theme {
+    // background: #503550;
+    // background: #3E0F3E;
+    background-color: purple;
+  }
+  .btn {
+    color: white;
+    // border: 2px solid purple;
+    background-color: purple;
   }
 }
 

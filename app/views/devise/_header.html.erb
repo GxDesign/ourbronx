@@ -19,7 +19,10 @@
 </div>
 <div id="session">
 	 <% if user_signed_in? %>
-	 <%= image_tag current_user.avatar(:thumb) %>
+	 <!-- TODO: Make sure to change this line back, as of right now the image is hardcoded -->
+	 <%# image_tag current_user.avatar(:thumb) %>
+	 <%= image_tag current_user.avatar_file_name, class: "small" %>
+
 	   <%= link_to 'Profile', edit_user_registration_path, :class => 'navbar-link' %> |
 	   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 	 <% else %>

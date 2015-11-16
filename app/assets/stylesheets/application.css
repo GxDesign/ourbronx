@@ -5,3 +5,12 @@
  *= require_self
  *= require_tree .
 */
+
+.small {
+  width: 3em;
+  height: 3em;
+}
+
+.marg-top {
+  margin-top: 160px !important;
+}

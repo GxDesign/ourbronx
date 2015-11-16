@@ -1,4 +1,4 @@
-<div id="project-cards-container" %>
+<div id="project-cards-container" class="<%= 'marg-top' if options %>" %>
 	<% Project.all[0..3].each do |project| %>
 	<div class="project-card">
 			<%= link_to project_path(project) do %>
@@ -7,15 +7,16 @@
 				</div>
 				<div class="pc-desc"><%= project.summary %></div>
 				<div class="pc-avatar">
-					<% rpath = Rails.application.root.join("public") %>
-					<% Project.first.user.avatar.url.match(/(.*jpg)/).captures.first.split("/").each do |path| %>
-						<% rpath = rpath.join(path) unless path.empty? %>
-					<% end %>
-					<% if File.exist?(rpath) %>
-						<%= image_tag(project.user.avatar.url) %>
-					<% else %>
+					<%# rpath = Rails.application.root.join("public") %>
+					<%# Project.first.user.avatar.url.match(/(.*jpg)/).captures.first.split("/").each do |path| %>
+						<%# rpath = rpath.join(path) unless path.empty? %>
+					<%# end %>
+					<!-- TODO: Make sure to uncomment all this to account for the case when a user hasnt submitted a photo or look into how to make a default picture for when the user hasnt submitted one yet. As of right now, I hardcoded the pictures in the assets folder and calling them in the image tag -->
+					<%# if File.exist?(rpath) %>
+						<%# image_tag(project.user.avatar) %>
+					<%# else %>
 						<%= image_tag(project.user.avatar_file_name) %>
-					<% end %>
+					<%# end %>
 				</div>
 			<% end %>
 	</div>

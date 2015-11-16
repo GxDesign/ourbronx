@@ -12,7 +12,7 @@
     </div>
   <% end %>
 </div>
-<%= render "projects/projects" %>
+<%= render partial: "projects/projects", locals: {options: true } %>
 
 <%= link_to "VIEW ALL PROJECTS", projects_path, class: "large-projects-btn"%>
 <br><br><br>
